@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Відлуння_beta1", "Відлуння_beta1.csproj", "{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "token", "token", "{FD46CF33-B47C-4888-BB70-F6683DBDE7C0}"
+	ProjectSection(SolutionItems) = preProject
+		token.json = token.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Debug|x64.ActiveCfg = Debug|x64
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Debug|x64.Build.0 = Debug|x64
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Release|x64.ActiveCfg = Release|x64
+		{34EE2F9F-238F-4374-8EA2-8F9ED3CF8ACF}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {603627F8-B6C9-415C-ADBC-AC912CE80D6C}
+	EndGlobalSection
+EndGlobal
