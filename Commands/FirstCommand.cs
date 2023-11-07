@@ -1,10 +1,14 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+
+
 
 namespace Vidlunnia_tushi_discord.Commands
 {
@@ -24,6 +28,14 @@ namespace Vidlunnia_tushi_discord.Commands
             await ctx.Channel.SendMessageAsync(result.ToString());
         }
 
+        [Command("embed")]
+        public async Task EmmbedMessage(CommandContext ctx) 
+        {
+            var messageBuilder = new DiscordMessageBuilder();
+            messageBuilder.WithTitle("My message title");
+            messageBuilder.WithContent("My message content");
+            await messageBuilder.SendAsync();
 
+        }
     }
 }
