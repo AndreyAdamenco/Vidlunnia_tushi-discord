@@ -15,10 +15,10 @@ namespace Vidlunnia_tushi_discord.Commands
     public class FirstCommand : BaseCommandModule
     {
         [Command("test")]
-        public async Task Mycommand(CommandContext ctx) 
+        public async Task Mycommand(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync($"Привітик я відлунник чим я можу тобі допомогти{ctx.User}?");
-     
+
         }
 
         [Command("math")]
@@ -29,12 +29,19 @@ namespace Vidlunnia_tushi_discord.Commands
         }
 
         [Command("embed")]
-        public async Task EmmbedMessage(CommandContext ctx) 
+        public async Task EmmbedMessage(CommandContext ctx)
         {
-            var messageBuilder = new DiscordMessageBuilder();
-            messageBuilder.WithTitle("My message title");
-            messageBuilder.WithContent("My message content");
-            await messageBuilder.SendAsync();
+            var message = new DiscordEmbedBuilder
+            {
+                Title = "new and better embed",
+                Description = $"нянянянняняннянняняняняннянянянянянняняняяняняняняняняняннянянн{ctx.Member.Nickname}",
+                Color = DiscordColor.HotPink,
+            };
+            await ctx.Channel.SendMessageAsync(embed: message);
+        }
+        [Command("cardgame")]
+        public async Task CardGame(CommandContext ctx)
+        {
 
         }
     }

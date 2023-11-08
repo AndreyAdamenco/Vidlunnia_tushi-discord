@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bot.cs" />
+    <Compile Include="Commands\CardSys.cs" />
     <Compile Include="Commands\FirstCommand.cs" />
     <Compile Include="JsonReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
