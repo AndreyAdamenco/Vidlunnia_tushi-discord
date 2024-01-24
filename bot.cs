@@ -1,11 +1,14 @@
 ﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
+using DSharpPlus.Interactivity.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
+using DSharpPlus.Interactivity;
 using System.Threading.Tasks;
 using Vidlunnia_tushi_discord;
 using Vidlunnia_tushi_discord.Commands;
@@ -29,6 +32,12 @@ namespace Відлуння_beta1
                 AutoReconnect = true,
             };
                 Client = new DiscordClient(discordConfig);
+
+            Client.UseInteractivity(new InteractivityConfiguration() 
+            {
+                Timeout =TimeSpan.FromMinutes(5)
+            });
+
             Client.Ready += Client_Ready;
 
             var commandsConfig = new CommandsNextConfiguration()

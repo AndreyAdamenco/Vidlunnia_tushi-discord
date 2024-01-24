@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,6 +43,22 @@ namespace Vidlunnia_tushi_discord.Commands
         [Command("cardgame")]
         public async Task CardGame(CommandContext ctx)
         {
+            var userCard = new CardSys();
+
+            var userCArdemm = new DiscordEmbedBuilder 
+            {
+                Title =$"Твоя картка це {userCard.SelectedCARD}",
+                Color= DiscordColor.MidnightBlue
+            };
+            var botCard = new CardSys();
+            await ctx.Channel.SendMessageAsync(embed: userCArdemm);
+            var botCArdemm = new DiscordEmbedBuilder
+            {
+                Title = $"В бота була {botCard.SelectedCARD}",
+                Color = DiscordColor.Teal
+            };
+            await ctx.Channel.SendMessageAsync(embed: botCArdemm);
+
 
         }
     }
