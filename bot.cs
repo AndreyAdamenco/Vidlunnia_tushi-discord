@@ -17,8 +17,8 @@ namespace Відлуння_beta1
 {
     internal class bot
     {
-        private static DiscordClient Client { get; set; }
-        private static CommandsNextExtension Comands { get; set; }
+        public static DiscordClient Client { get; set; }
+        public static CommandsNextExtension Comands { get; set; }
         static async Task Main(string[] args)
         {
             var jsonReader = new JsonReader();
