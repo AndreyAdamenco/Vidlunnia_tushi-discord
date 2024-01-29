@@ -3,12 +3,6 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading.Tasks;
 using Відлуння_beta1;
 
@@ -127,14 +121,57 @@ namespace Vidlunnia_tushi_discord.Commands
 
         }
         [Command("квізи")]
-        public async Task poll(CommandContext ctx)
+        public async Task poll(CommandContext ctx, string option0, string option1, string option2, string option3, [RemainingText] string polltitle)
         {
             var poll = bot.Client.GetInteractivity();
-            
+            var polltime = TimeSpan.FromSeconds(100);
+            DiscordEmoji[] emojioptions =
+            {
+                DiscordEmoji.FromName(bot.Client, ":one:"),
+                DiscordEmoji.FromName(bot.Client, ":two:"),
+                DiscordEmoji.FromName(bot.Client, ":three:"),
+                DiscordEmoji.FromName(bot.Client, ":four:")
+            };
+            string optionDescr = $"{emojioptions[0]} | {option0} \n" +
+                $"{emojioptions[1]} | {option1} \n" + $"{emojioptions[2]} | {option2} \n" + $"{emojioptions[3]} | {option3}";
+            var pollmessage = new DiscordEmbedBuilder
+            {
+                Title = polltitle,
+                Color = DiscordColor.Violet,
+                Description = optionDescr
+            };
+           var sendpoll = await ctx.Channel.SendMessageAsync(embed: pollmessage);
+            foreach (var emoji in emojioptions)
+            {
+                await sendpoll.CreateReactionAsync(emoji);
+            }
+            var totalreac = await poll.CollectReactionsAsync(sendpoll, polltime);
+            int count0 = 0;
+            int count1 = 0;
+            int count2 = 0;
+            int count3 = 0;
+            foreach (var emoji in totalreac) 
+            {
+                if (emoji.Emoji == emojioptions[0]) { count0++; }
+                if (emoji.Emoji ==emojioptions[1]) { count1++; }
+                if (emoji.Emoji == emojioptions[2]) {count2++; }
+                if (emoji.Emoji == emojioptions[3]) { count3++; }
+            }
 
 
 
-
+            int total = count0 + count1 + count2 + count3;
+            string resultDescr = $"{emojioptions[0]}: {count0} голосів \n" +
+                                 $"{emojioptions[1]}: {count1} голосів \n" +
+                                 $"{emojioptions[2]}: {count2} голосів \n" +
+                                 $"{emojioptions[3]}: {count3} голосів \n";
+            var Embedresult = new DiscordEmbedBuilder
+            {
+                Color = DiscordColor.Violet,
+                Title = "Результати квізу",
+                Description = resultDescr
+            };
+            await ctx.Channel.SendMessageAsync(embed: Embedresult);
         }
     }
 }
